@@ -1,4 +1,15 @@
 (function () {
+  var revealScript = document.currentScript;
+  var onHomepage = document.querySelector('.case-grid');
+  var casePath = window.location.pathname.split('/').pop();
+  var isCasePage = /^case-(federal-ministry-of-defence|apc-promise-kept|placom)\.html$/.test(casePath);
+  if (revealScript && (onHomepage || isCasePage)) {
+    var dataScript = document.createElement('script');
+    dataScript.src = new URL('public-case-sync.js?v=1', revealScript.src).href;
+    dataScript.defer = true;
+    document.head.appendChild(dataScript);
+  }
+
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var els = document.querySelectorAll('.reveal-up');
   if (!els.length || !('IntersectionObserver' in window)) {

@@ -572,3 +572,24 @@
 @media (prefers-reduced-motion: reduce){
   .reveal-up{ opacity:1; transform:none; transition:none; }
 }
+
+@media screen and (max-width: 991px){
+  .menu-button.w-nav-button{
+    box-sizing:border-box;
+    width:44px;
+    height:44px;
+    padding:0;
+    display:grid!important;
+    place-items:center;
+  }
+  .menu-button.w-nav-button:focus-visible{
+    outline:2px solid var(--polish-orange);
+    outline-offset:2px;
+  }
+}
+
+.navbar-2{
+  top:0!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
